@@ -12,15 +12,16 @@ resource "aws_iam_access_key" "hm" {
   user = aws_iam_user.hm.name
 }
 data "aws_iam_policy_document" "hm_ro" {
-  statement {
-    effect    = "Allow"
-    actions   = ["ec2:Describe*"]
-    resources = ["*"]
-  }
+  statement  [
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*"
+        }
+    ]
 }
-
 resource "aws_iam_user_policy" "hm_ro" {
-  name   = "test"
+  name   = "administratorfullaccess"
   user   = aws_iam_user.hm.name
   policy = data.aws_iam_policy_document.hm_ro.json
 }
