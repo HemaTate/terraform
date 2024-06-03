@@ -13,12 +13,10 @@ resource "aws_iam_access_key" "hm" {
 }
 data "aws_iam_policy_document" "hm_ro" {
   statement  {
-        {
-            "Effect": "Allow",
-            "Action": "*",
-            "Resource": "*"
+        "Effect": "Allow",
+         "Action": "*",
+        "Resource": "*"
         }
-    }
 }
 resource "aws_iam_user_policy" "hm_ro" {
   name   = "administratorfullaccess"
