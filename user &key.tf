@@ -1,15 +1,9 @@
 provider "aws" {
   region = "us-east-1"
 }
-terraform {
-   {
-     region = "us-east-1"
-  }
-}
 resource "aws_iam_user" "hm" {
   name = "hema"
   path = "/system/"
-
   tags = {
     tag-key = "tag-value"
   }
